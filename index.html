@@ -1,129 +1,202 @@
-<link rel="stylesheet" href="style.css">
-    <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#tecnologias">Tecnologias</a></li>
-        <li><a href="#simulador">Simulador</a></li>
-        <li><a href="#quiz">Quiz</a></li>
-        <li><a href="#contato">Contato</a></li>
-    </ul>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <button id="themeButton">🌙</button>
-</nav>
-<p>
-    O equilíbrio entre produção agrícola e preservação ambiental é essencial
-    para garantir alimento, qualidade de vida e recursos naturais para as
-    próximas gerações.
-</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável</title>
 
-<a href="#simulador" class="btn">
-    Explorar Simulador
-</a>
-<h2>Tecnologias Sustentáveis</h2>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-<div class="cards">
+<body>
 
-    <article class="card">
-        <h3>🌾 Agricultura de Precisão</h3>
+<header>
+    <nav>
+        <h1>🌱 Agro Forte</h1>
+
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#tecnologias">Tecnologias</a></li>
+            <li><a href="#simulador">Simulador</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+
+        <button id="themeButton">🌙</button>
+    </nav>
+</header>
+
+<main>
+
+    <section id="inicio" class="hero">
+
+        <h2>Agro Forte, Futuro Sustentável</h2>
+
         <p>
-            Sensores e drones ajudam a produzir mais utilizando menos recursos.
+            O equilíbrio entre produção agrícola e preservação ambiental
+            é essencial para garantir alimento, qualidade de vida e
+            recursos naturais para as próximas gerações.
         </p>
-    </article>
 
-    <article class="card">
-        <h3>☀️ Energia Solar</h3>
-        <p>
-            Fonte limpa que reduz impactos ambientais e custos.
-        </p>
-    </article>
+        <a href="#simulador" class="btn">
+            Explorar Simulador
+        </a>
 
-    <article class="card">
-        <h3>💧 Irrigação Inteligente</h3>
-        <p>
-            Uso eficiente da água através de monitoramento.
-        </p>
-    </article>
+    </section>
 
-    <article class="card">
-        <h3>🌳 Reflorestamento</h3>
-        <p>
-            Recuperação de áreas degradadas e proteção da fauna.
-        </p>
-    </article>
+    <section id="tecnologias">
 
-</div>
-<h2>Simulador de Fazenda Sustentável</h2>
+        <h2>Tecnologias Sustentáveis</h2>
 
-<div class="painel">
+        <div class="cards">
 
-    <div class="indicador">
-        <h3>Produção</h3>
-        <p id="producao">50</p>
-    </div>
+            <article class="card">
+                <h3>🌾 Agricultura de Precisão</h3>
+                <p>
+                    Sensores e drones ajudam a produzir mais utilizando
+                    menos recursos.
+                </p>
+            </article>
 
-    <div class="indicador">
-        <h3>Meio Ambiente</h3>
-        <p id="ambiente">50</p>
-    </div>
+            <article class="card">
+                <h3>☀️ Energia Solar</h3>
+                <p>
+                    Fonte limpa que reduz impactos ambientais e custos.
+                </p>
+            </article>
 
-</div>
+            <article class="card">
+                <h3>💧 Irrigação Inteligente</h3>
+                <p>
+                    Uso eficiente da água através de monitoramento.
+                </p>
+            </article>
 
-<div class="acoes">
+            <article class="card">
+                <h3>🌳 Reflorestamento</h3>
+                <p>
+                    Recuperação de áreas degradadas e proteção da fauna.
+                </p>
+            </article>
 
-    <button id="btnProducao">
-        🌾 Aumentar Produção
-    </button>
+        </div>
 
-    <button id="btnArvores">
-        🌳 Plantar Árvores
-    </button>
+    </section>
 
-    <button id="btnAgua">
-        💧 Economizar Água
-    </button>
+    <section id="simulador">
 
-    <button id="btnSolar">
-        ☀️ Energia Solar
-    </button>
+        <h2>Simulador de Fazenda Sustentável</h2>
 
-</div>
+        <div class="painel">
 
-<p id="status"></p>
-<h2>Quiz Sustentável</h2>
+            <div class="indicador">
+                <h3>Produção</h3>
+                <p id="producao">50</p>
+            </div>
 
-<div class="quiz-box">
+            <div class="indicador">
+                <h3>Meio Ambiente</h3>
+                <p id="ambiente">50</p>
+            </div>
 
-    <h3>Qual destas fontes de energia é renovável?</h3>
+        </div>
 
-    <button class="quiz-option">Petróleo</button>
-    <button class="quiz-option">Carvão</button>
-    <button class="quiz-option correct">Energia Solar</button>
-    <button class="quiz-option">Diesel</button>
+        <div class="acoes">
 
-    <p id="quizResult"></p>
+            <button id="btnProducao">
+                🌾 Aumentar Produção
+            </button>
 
-</div>
-<h2>Envie sua ideia sustentável</h2>
+            <button id="btnArvores">
+                🌳 Plantar Árvores
+            </button>
 
-<form id="contactForm">
+            <button id="btnAgua">
+                💧 Economizar Água
+            </button>
 
-    <input
-        type="text"
-        id="nome"
-        placeholder="Seu nome">
+            <button id="btnSolar">
+                ☀️ Energia Solar
+            </button>
 
-    <input
-        type="email"
-        id="email"
-        placeholder="Seu e-mail">
+        </div>
 
-    <textarea
-        id="mensagem"
-        placeholder="Sua mensagem"></textarea>
+        <p id="status"></p>
 
-    <button type="submit">
-        Enviar
-    </button>
+    </section>
 
-    <p id="formMessage"></p>
+    <section id="quiz">
 
-</form>
+        <h2>Quiz Sustentável</h2>
+
+        <div class="quiz-box">
+
+            <h3>
+                Qual destas fontes de energia é renovável?
+            </h3>
+
+            <button class="quiz-option">
+                Petróleo
+            </button>
+
+            <button class="quiz-option">
+                Carvão
+            </button>
+
+            <button class="quiz-option correct">
+                Energia Solar
+            </button>
+
+            <button class="quiz-option">
+                Diesel
+            </button>
+
+            <p id="quizResult"></p>
+
+        </div>
+
+    </section>
+
+    <section id="contato">
+
+        <h2>Envie sua ideia sustentável</h2>
+
+        <form id="contactForm">
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Seu nome">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Seu e-mail">
+
+            <textarea
+                id="mensagem"
+                placeholder="Sua mensagem"></textarea>
+
+            <button type="submit">
+                Enviar
+            </button>
+
+            <p id="formMessage"></p>
+
+        </form>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>
+        Projeto Agrinho 2026 • Agro Forte, Futuro Sustentável 🌎
+    </p>
+</footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>
