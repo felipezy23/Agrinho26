@@ -273,5 +273,4 @@ elemento.style.transition =
 "all 0.8s ease";
 
 observador.observe(elemento);
-
 });
