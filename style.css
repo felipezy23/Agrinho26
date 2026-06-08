@@ -1,131 +1,352 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+/* ==========================
+RESET
+========================== */
 
-:root {
-    --cor-de-fundo: #1E1E1E;
-    --verde: #6FFF57;
-    --branco: #FFFFFF;
-    --botao-ativo: #3A375E;
-    --botao-inativo: rgba(58, 55, 94, 0.5);
-    --texto-fundo: rgba(58, 55, 94, 0.3);
+*{
+margin:0;
+padding:0;
+box-sizing;
+scroll-behavior;
 }
 
-body {
-    background-color: var(--cor-de-fundo);
-    color: var(--branco);
-    font-family: 'Chakra Petch', sans-serif;
+{
+--verde:#2e8b57;
+--verde-claro:#4caf50;
+--fundo:#f5f7f5;
+--texto:#222;
+--card:#ffffff;
+--sombra:0 4px 15px rgba(0,0,0,0.1);
 }
 
-
-.conteudo-principal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+body.dark{
+--fundo:#121212;
+--texto:#f5f5f5;
+--card:#1f1f1f;
+--sombra:0 4px 15px rgba(255,255,255,0.08);
 }
 
-.titulo-principal {
-    text-align: left;
-    width: 100%;
-    font-size: 32px;
+body{
+font-family, Helvetica, sans-serif;
+background(--fundo);
+color(--texto);
+transition:0.4s;
 }
 
-.titulo-principal span {
-    color: var(--verde);
+/* ==========================
+NAVBAR
+========================== */
+
+header{
+position;
+top:0;
+z-index:1000;
 }
 
-
-.botao {
-    font-family: 'Chakra Petch', sans-serif;
-    background-color: var(--botao-inativo);
-    color: var(--branco);
-    display: flex;
-    justify-content: center;
-    padding: 1em;
-    font-size: 18px;
-    align-items: center;
-    width: 100%;
-    border-bottom: 4px solid var(--botao-ativo);
-    border-left: 2px solid var(--botao-ativo);
-    border-right: 2px solid var(--botao-ativo);
-    border-top: none;
+nav{
+background(--verde);
+display;
+justify-content;
+align-items;
+padding:15px 8%;
 }
 
-.botao:first-child {
-    border-radius: 40px 40px 0 0;
+nav h1{
+color;
 }
 
-.botoes {
-    display: block;
+nav ul{
+display;
+gap:25px;
+list-style;
 }
 
-.botao.ativo {
-    background-color: var(--botao-ativo);
-    border-bottom: 4px solid var(--verde);
+nav a{
+text-decoration;
+color;
+font-weight;
+transition:0.3s;
 }
 
-.abas-textos {
-    background-color: var(--texto-fundo);
-    padding: 40px;
-    border-radius: 0 0 40px 40px;
+nav a{
+opacity:0.8;
 }
 
-.aba-conteudo.ativo {
-    display: block;
+#themeButton{
+border;
+background;
+padding:8px 12px;
+border-radius:8px;
+cursor;
 }
 
-.aba-conteudo {
-    display: none;
+/* ==========================
+HERO
+========================== */
+
+.hero{
+min-height:80vh;
+display;
+flex-direction;
+justify-content;
+align-items;
+text-align;
+padding:40px;
 }
 
-.aba-conteudo-titulo-principal {
-    font-size: 28px;
-    text-align: center;
+.hero h2{
+font-size:3rem;
+margin-bottom:20px;
 }
 
-.aba-conteudo-titulo-secundario {
-    text-align: center;
-    color: var(--verde);
-    text-transform: uppercase;
+.hero p{
+max-width:800px;
+line-height:1.8;
+font-size:1.1rem;
 }
 
-.contador {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.btn{
+margin-top:30px;
+background(--verde);
+color;
+text-decoration;
+padding:15px 25px;
+border-radius:10px;
+transition:0.3s;
 }
 
-.contador-digito {
-    padding: 0 16px;
-    text-align: center;
-    min-width: 100px;
+.btn{
+transform(-3px);
 }
 
-.contador-digito-numero {
-    font-size: 80px;
-    margin: 0;
+/* ==========================
+SEÇÕES
+========================== */
+
+section{
+padding:80px 10%;
+}
+
+section h2{
+text-align;
+margin-bottom:40px;
+font-size:2rem;
+}
+
+/* ==========================
+CARDS
+========================== */
+
+.cards{
+display;
+grid-template-columns(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background(--card);
+padding:25px;
+border-radius:15px;
+box-shadow(--sombra);
+transition:0.3s;
+}
+
+.card{
+transform(-8px);
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+/* ==========================
+SIMULADOR
+========================== */
+
+.painel{
+display;
+justify-content;
+gap:40px;
+flex-wrap;
+margin-bottom:30px;
+}
+
+.indicador{
+background(--card);
+padding:20px;
+border-radius:15px;
+width:220px;
+text-align;
+box-shadow(--sombra);
+}
+
+.indicador p{
+font-size:2rem;
+margin-top:10px;
+color(--verde);
+}
+
+.acoes{
+display;
+flex-wrap;
+justify-content;
+gap:15px;
+}
+
+.acoes button{
+background(--verde);
+color;
+border;
+padding:12px 18px;
+border-radius:10px;
+cursor;
+transition:0.3s;
+}
+
+.acoes button{
+transform(1.05);
+}
+
+#status{
+text-align;
+margin-top:25px;
+font-weight;
+}
+
+/* ==========================
+QUIZ
+========================== */
+
+.quiz-box{
+max-width:700px;
+margin;
+background(--card);
+padding:30px;
+border-radius:15px;
+box-shadow(--sombra);
+}
+
+.quiz-box h3{
+margin-bottom:20px;
+}
+
+.quiz-option{
+display;
+width:100%;
+margin:10px 0;
+padding:12px;
+border;
+border-radius:8px;
+cursor;
+transition:0.3s;
+}
+
+.quiz-option{
+transform(5px);
+}
+
+#quizResult{
+margin-top:20px;
+font-weight;
+}
+
+/* ==========================
+FORMULÁRIO
+========================== */
+
+form{
+max-width:700px;
+margin;
+display;
+flex-direction;
+gap:15px;
+}
+
+input,
+textarea{
+padding:15px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:1rem;
+}
+
+textarea{
+resize;
+height:150px;
+}
+
+form button{
+background(--verde);
+color;
+border;
+padding:15px;
+border-radius:10px;
+cursor;
+}
+
+#formMessage{
+text-align;
+font-weight;
+}
+
+/* ==========================
+FOOTER
+========================== */
+
+footer{
+background(--verde);
+color;
+text-align;
+padding:25px;
+}
+
+/* ==========================
+ANIMAÇÕES
+========================== */
+
+.card,
+.indicador,
+.quiz-box,
+form{
+animation 1s ease;
+}
+
+@keyframes fadeIn{
+
+from{
+    opacity:0;
+    transform:translateY(20px);
+}
+
+to{
+    opacity:1;
+    transform:translateY(0);
+}
 
 }
 
-.contador-digito-texto {
-    color: var(--verde);
-    font-size: 20px;
-    margin: 0;
+/* ==========================
+RESPONSIVIDADE
+========================== */
 
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+    gap:15px;
 }
 
-@media screen and (min-width: 768px) {
-    .botoes {
-        display: flex;
-    }
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
 
-    .botao:first-child {
-        border-radius: 40px 0 0 0;
-    }
+.hero h2{
+    font-size:2rem;
+}
 
-    .botao:last-child {
-        border-radius: 0 40px 0 0;
-    }
+.painel{
+    flex-direction:column;
+    align-items:center;
+}
+
 }
