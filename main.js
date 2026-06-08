@@ -1,58 +1,277 @@
-const botoes = document.querySelectorAll(".botao");
-const textos = document.querySelectorAll(".aba-conteudo");
+// ==========================
+// MODO ESCURO
+// ==========================
 
-for (let i = 0; i < botoes.length; i++) {
-    botoes[i].onclick = function () {
+const themeButton = document.getElementById("themeButton");
 
-        for (let j = 0; j < botoes.length; j++) {
-            botoes[j].classList.remove("ativo");
-            textos[j].classList.remove("ativo");
-        }
+if(localStorage.getItem("tema") === "escuro"){
+document.body.classList.add("dark");
+themeButton.textContent = "☀️";
+}
 
-        botoes[i].classList.add("ativo");
-        textos[i].classList.add("ativo");
+themeButton.addEventListener("click", () => {
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+    localStorage.setItem("tema", "escuro");
+    themeButton.textContent = "☀️";
+}else{
+    localStorage.setItem("tema", "claro");
+    themeButton.textContent = "🌙";
+}
+
+});
+
+// ==========================
+// SIMULADOR DE FAZENDA
+// ==========================
+
+let producao = 50;
+let ambiente = 50;
+
+const producaoElemento =
+document.getElementById("producao");
+
+const ambienteElemento =
+document.getElementById("ambiente");
+
+const statusElemento =
+document.getElementById("status");
+
+function atualizarPainel(){
+
+producaoElemento.textContent = producao;
+ambienteElemento.textContent = ambiente;
+
+if(producao > ambiente + 30){
+
+    statusElemento.textContent =
+    "⚠️ Atenção! A produção está crescendo mais rápido que a preservação ambiental.";
+
+}else if(ambiente > producao){
+
+    statusElemento.textContent =
+    "🌳 Excelente! Sua fazenda está priorizando sustentabilidade.";
+
+}else{
+
+    statusElemento.textContent =
+    "✅ Produção e meio ambiente estão equilibrados.";
+
+}
+
+}
+
+document
+.getElementById("btnProducao")
+.addEventListener("click", () => {
+
+producao += 10;
+ambiente -= 5;
+
+if(ambiente < 0){
+    ambiente = 0;
+}
+
+atualizarPainel();
+
+});
+
+document
+.getElementById("btnArvores")
+.addEventListener("click", () => {
+
+ambiente += 10;
+
+if(ambiente > 100){
+    ambiente = 100;
+}
+
+atualizarPainel();
+
+});
+
+document
+.getElementById("btnAgua")
+.addEventListener("click", () => {
+
+ambiente += 5;
+producao += 5;
+
+if(ambiente > 100){
+    ambiente = 100;
+}
+
+if(producao > 100){
+    producao = 100;
+}
+
+atualizarPainel();
+
+});
+
+document
+.getElementById("btnSolar")
+.addEventListener("click", () => {
+
+ambiente += 8;
+producao += 3;
+
+if(ambiente > 100){
+    ambiente = 100;
+}
+
+if(producao > 100){
+    producao = 100;
+}
+
+atualizarPainel();
+
+});
+
+atualizarPainel();
+
+// ==========================
+// QUIZ
+// ==========================
+
+const quizOptions =
+document.querySelectorAll(".quiz-option");
+
+const quizResult =
+document.getElementById("quizResult");
+
+quizOptions.forEach(botao => {
+
+botao.addEventListener("click", () => {
+
+    if(botao.classList.contains("correct")){
+
+        quizResult.textContent =
+        "✅ Correto! Energia solar é uma fonte renovável.";
+
+        quizResult.style.color = "green";
+
+    }else{
+
+        quizResult.textContent =
+        "❌ Resposta incorreta. Tente novamente.";
+
+        quizResult.style.color = "red";
+
     }
+
+});
+
+});
+
+// ==========================
+// FORMULÁRIO
+// ==========================
+
+const form =
+document.getElementById("contactForm");
+
+const formMessage =
+document.getElementById("formMessage");
+
+form.addEventListener("submit", (evento) => {
+
+evento.preventDefault();
+
+const nome =
+document.getElementById("nome").value.trim();
+
+const email =
+document.getElementById("email").value.trim();
+
+const mensagem =
+document.getElementById("mensagem").value.trim();
+
+if(nome === ""){
+
+    formMessage.textContent =
+    "Digite seu nome.";
+
+    formMessage.style.color = "red";
+
+    return;
 }
 
-const contadores = document.querySelectorAll(".contador");
-const tempoObjetivo1 = new Date("2025-10-05T00:00:00");
-const tempoObjetivo2 = new Date("2025-12-05T00:00:00");
-const tempoObjetivo3 = new Date("2025-12-30T00:00:00");
-const tempoObjetivo4 = new Date("2025-02-01T00:00:00");
+if(email === ""){
 
-const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
+    formMessage.textContent =
+    "Digite seu e-mail.";
 
+    formMessage.style.color = "red";
 
-function calculaTempo(tempoObjetivo) {
-    let tempoAtual = new Date();
-    let tempoFinal = tempoObjetivo - tempoAtual;
-    let segundos = Math.floor(tempoFinal / 1000);
-    let minutos = Math.floor(segundos / 60);
-    let horas = Math.floor(minutos / 60);
-    let dias = Math.floor(horas / 24);
+    return;
+}
 
-    segundos %= 60;
-    minutos %= 60;
-    horas %= 24;
-    if (tempoFinal > 0) {
-        return [dias, horas, minutos, segundos];
-    } else {
-        return [0, 0, 0, 0];
+if(!email.includes("@")){
+
+    formMessage.textContent =
+    "Digite um e-mail válido.";
+
+    formMessage.style.color = "red";
+
+    return;
+}
+
+if(mensagem.length < 10){
+
+    formMessage.textContent =
+    "A mensagem deve ter pelo menos 10 caracteres.";
+
+    formMessage.style.color = "red";
+
+    return;
+}
+
+formMessage.textContent =
+"✅ Mensagem enviada com sucesso!";
+
+formMessage.style.color = "green";
+
+form.reset();
+
+});
+
+// ==========================
+// ANIMAÇÃO AO ROLAR
+// ==========================
+
+const elementos =
+document.querySelectorAll(
+".card, .indicador, .quiz-box, form"
+);
+
+const observador =
+new IntersectionObserver((entradas) => {
+
+entradas.forEach((entrada) => {
+
+    if(entrada.isIntersecting){
+
+        entrada.target.style.opacity = "1";
+        entrada.target.style.transform =
+        "translateY(0)";
+
     }
-}
 
-function atualizaCronometro() {
-    for (let i = 0; i < contadores.length; i++) {
-        document.getElementById("dias" + i).textContent = calculaTempo(tempos[i])[0];
-        document.getElementById("horas" + i).textContent = calculaTempo(tempos[i])[1];
-        document.getElementById("min" + i).textContent = calculaTempo(tempos[i])[2];
-        document.getElementById("seg" + i).textContent = calculaTempo(tempos[i])[3];
-    }
-}
+});
 
-function comecaCronometro() {
-    atualizaCronometro();
-    setInterval(atualizaCronometro, 1000);
-}
+});
 
-comecaCronometro();
+elementos.forEach((elemento) => {
+
+elemento.style.opacity = "0";
+elemento.style.transform =
+"translateY(40px)";
+elemento.style.transition =
+"all 0.8s ease";
+
+observador.observe(elemento);
+
+});
